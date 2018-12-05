@@ -30,7 +30,7 @@ public class UsuarioService {
 	}
 
 	@GET
-	@Path("/busca/{email}")
+	@Path("/{email}")
 	public Usuario busca(@PathParam("email") String email) {
 		return usuarioDAO.busca(email);
 	}
