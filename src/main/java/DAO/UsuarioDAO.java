@@ -23,9 +23,9 @@ public class UsuarioDAO {
 
 	}
 
-	public Usuario busca(String email) {
+	public Usuario busca(String nif) {
 
-		Usuario u = buscarUsuarioPorEmail(email);
+		Usuario u = buscaPorNif(nif);
 
 		if (u != null) {
 
@@ -65,6 +65,42 @@ public class UsuarioDAO {
 		}
 
 		return false;
+	}
+
+	public Usuario buscaPorNif(String nif) {
+
+		String sql = "SELECT * FROM administrador " + " WHERE nif = ?;";
+
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ps.setString(1, nif);
+
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+
+				UsuarioADM adm = new UsuarioADM();
+
+				adm.setId(rs.getInt("id"));
+				adm.setNIF(rs.getString("NIF"));
+				adm.setEmail(rs.getString("email"));
+				adm.setNome(rs.getString("nome"));
+				adm.setSenha(rs.getString("senha"));
+				adm.setTelefone(rs.getString("telefone"));
+
+				tipoUsuario = "administrador";
+
+				return adm;
+
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 
 	public Usuario buscarUsuarioPorEmail(String email) {
