@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionDB {
 	private static Connection con;
-	private static String dns = "jdbc:mysql://localhost:3306/alfa?useUnicode=true&"
+	private static String dns = "jdbc:mysql://localhost:3306/secv?useUnicode=true&"
 			+ "useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&"
 			+ "zeroDateTimeBehavior=convert_to_null";
 	private static String user = "root";
