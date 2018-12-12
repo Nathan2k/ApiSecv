@@ -16,7 +16,7 @@ public class ConnectionDB {
 		if (con == null || con.isClosed()) {
 			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 			con = DriverManager.getConnection(dns, user, pass);
-			System.out.println("DB conectado com sucesso!");
+			System.out.println("DB SECV conectado com sucesso!");
 			// TODO Auto-generated catch block
 		}
 		return con;
